@@ -21,10 +21,9 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
     - name: Build the Docker image
       run: docker build -t docker-img .
-    - name: Get the version
-      id: vars
-      run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
-    - name: Build the tagged Docker image
-      run: docker tag docker-img ${{ secrets.DOCKERHUB_USERNAME }}/docker-img:latest
-    - name: Push the latest Docker image
-      run: docker push  ${{ secrets.DOCKERHUB_USERNAME }}/docker-img
+    - name: Tags
+      run: |
+          docker tag docker ${{ secrets.DOCKER_USERNAME }}/docker:latest
+    - name: Push
+      run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/docker:latest
