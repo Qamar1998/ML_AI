@@ -23,7 +23,7 @@ jobs:
       run: docker build -t docker-img .
     - name: Tags
       run: |
-          docker tag docker ${{ secrets.DOCKER_USERNAME }}/docker:latest
+          docker tag docker-img ${{ secrets.DOCKER_USERNAME }}/docker-img:latest
     - name: Push
       run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/docker:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/docker-img:latest
