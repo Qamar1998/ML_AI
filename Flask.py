@@ -71,4 +71,4 @@ def add():
 if __name__ == "__main__":
    # Loading a model pickled file
    model = pickle.load(open(prepare_pickle_file(), 'rb'))
-   app.run(debug=True)
+   app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 8000)))
