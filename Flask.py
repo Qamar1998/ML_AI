@@ -57,12 +57,12 @@ def add():
   else:
         
     #get features from get url
-    x1 = request.args.get('x1')
-    x2 = request.args.get('x2')
-    x3 = request.args.get('x3')
-    x4 = request.args.get('x4')
-    x5 = request.args.get('x5')
-    x6 = request.args.get('x6')
+    transaction_date = request.args.get('x1')
+    house_age = request.args.get('x2')
+    nearset_distance = request.args.get('x3')
+    num_convenice_stores = request.args.get('x4')
+    latitude = request.args.get('x5')
+    longtitude = request.args.get('x6')
     arr = np.array([x1,x2,x3,x4,x5,x6])
     p_price = predict(model , arr)
     return str(p_price)
